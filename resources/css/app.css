@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@300;400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth; /* css */
+        scroll-padding-top: clamp(75px, 10vw, 105px); /* css */
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Normatica Display', 'Montserrat', sans-serif;
+    }
+    p, .prose, .prose p, .prose div, .prose li {
+        font-family: 'Normatica Display', 'Montserrat', sans-serif;
+    }
+}
+
+/* Custom sleek scrollbar */
+::-webkit-scrollbar {
+    width: 5px; /* css */
+    height: 5px; /* css */
+}
+::-webkit-scrollbar-track {
+    background: transparent; /* css */
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1; /* css */
+    border-radius: 9999px; /* css */
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8; /* css */
+}
+
+* {
+    scrollbar-width: thin; /* css */
+    scrollbar-color: #cbd5e1 transparent; /* css */
+}
+
+@layer utilities {
+    .scrollbar-hide {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+    }
+}
+
+
+.prose > :first-child {
+    margin-top: 0 !important;
+}
+.prose > :last-child {
+    margin-bottom: 0 !important;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+.animate-marquee {
+    animation: marquee 40s linear infinite;
+}
+.animate-marquee-slow {
+    animation: marquee 80s linear infinite;
+}
+.group\/marquee:hover .animate-marquee,
+.group\/marquee:hover .animate-marquee-slow {
+    animation-play-state: paused;
+}
+
+/* Handle inline emoji images copied from other apps (Facebook, Slack, etc.) */
+.ql-editor img[src*="emoji"],
+.ql-editor img[src*="fbcdn"] {
+    display: inline-block !important;
+    height: 1.25em !important;
+    width: auto !important;
+    margin: 0 0.1em !important;
+    vertical-align: -0.2em !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+/* Inertia page loading progress bar */
+#nprogress .bar {
+    height: 2px !important; /* css */
+    background: #64748b !important; /* css */
+    z-index: 99999 !important; /* css */
+}
+
+#nprogress .peg {
+    box-shadow: 0 0 6px #64748b !important; /* css */
+}
+
